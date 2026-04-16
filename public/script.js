@@ -1,7 +1,7 @@
-const API = "http://localhost:5000";
+const API = ""; // IMPORTANT: no localhost
 
 document.getElementById("username").innerText =
-  "Hi, " + localStorage.getItem("user");
+  "Hi, " + (localStorage.getItem("user") || "Student");
 
 // Section switch
 function showSection(section) {
@@ -19,7 +19,7 @@ function showToast(msg) {
   setTimeout(() => toast.style.display = "none", 2000);
 }
 
-// TASKS
+// ================= TASKS =================
 
 async function loadTasks() {
   const res = await fetch(API + "/tasks");
@@ -41,8 +41,8 @@ async function loadTasks() {
         ${t.text}
       </span>
       <div>
-        <button onclick="toggleTask(${t.id})">✔</button>
-        <button onclick="deleteTask(${t.id})">🗑</button>
+        <button onclick="toggleTask('${t._id}')">✔</button>
+        <button onclick="deleteTask('${t._id}')">🗑</button>
       </div>
     `;
 
@@ -56,6 +56,8 @@ async function loadTasks() {
 async function addTask() {
   const text = document.getElementById("taskInput").value;
 
+  if (!text) return;
+
   await fetch(API + "/tasks", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
@@ -63,6 +65,7 @@ async function addTask() {
   });
 
   showToast("Task added!");
+  document.getElementById("taskInput").value = "";
   loadTasks();
 }
 
@@ -77,7 +80,7 @@ async function deleteTask(id) {
   loadTasks();
 }
 
-// NOTES
+// ================= NOTES =================
 
 async function loadNotes() {
   const res = await fetch(API + "/notes");
@@ -92,7 +95,7 @@ async function loadNotes() {
 
     div.innerHTML = `
       <span>${n.text}</span>
-      <button onclick="deleteNote(${n.id})">🗑</button>
+      <button onclick="deleteNote('${n._id}')">🗑</button>
     `;
 
     list.appendChild(div);
@@ -104,6 +107,8 @@ async function loadNotes() {
 async function addNote() {
   const text = document.getElementById("noteInput").value;
 
+  if (!text) return;
+
   await fetch(API + "/notes", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
@@ -111,6 +116,7 @@ async function addNote() {
   });
 
   showToast("Note added!");
+  document.getElementById("noteInput").value = "";
   loadNotes();
 }
 
