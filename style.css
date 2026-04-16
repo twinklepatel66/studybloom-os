@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🌈 Background */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #1a1a2e, #0f0f1a);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 🌟 Glow Background Orbs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: -1;
+}
+
+body::before {
+  background: #7c83fd;
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  background: #ff7ac6;
+  bottom: -100px;
+  right: -100px;
+}
+
+/* Layout */
+.container {
+  display: flex;
+}
+
+/* 🌸 Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  padding: 25px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar h2 {
+  color: #a685ff;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background: linear-gradient(135deg, #7c83fd, #ff7ac6);
+  color: white;
+  box-shadow: 0 0 15px #7c83fd;
+}
+
+/* 🌟 Main */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+/* 💎 Cards */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+    0 0 20px rgba(124,131,253,0.2),
+    0 0 40px rgba(255,122,198,0.1);
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 25px rgba(124,131,253,0.4),
+    0 0 60px rgba(255,122,198,0.2);
+}
+
+/* ✏️ Input */
+input {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* 🔥 Buttons */
+button {
+  background: linear-gradient(135deg, #7c83fd, #ff7ac6);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(124,131,253,0.5);
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 20px #7c83fd,
+    0 0 30px #ff7ac6;
+}
+
+/* 🧾 Tasks */
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+  padding: 12px;
+
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+
+  transition: 0.2s;
+}
+
+.task:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* 🔔 Toast */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  background: linear-gradient(135deg, #7c83fd, #ff7ac6);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: none;
+
+  box-shadow:
+    0 0 20px #7c83fd,
+    0 0 40px #ff7ac6;
+}
+
+/* ✨ Smooth Animations */
+.card,
+button,
+.sidebar a {
+  transition: all 0.3s ease;
+}
+
+/* 📱 Responsive */
+@media(max-width:768px){
+  .sidebar{
+    width:180px;
+  }
+}

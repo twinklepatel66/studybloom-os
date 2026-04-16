@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>🌸 StudyBloom</h2>
+    <a href="#" onclick="showSection('dashboard')">Dashboard</a>
+    <a href="#" onclick="showSection('tasks')">Tasks</a>
+    <a href="#" onclick="showSection('notes')">Notes</a>
+    <a href="#" onclick="showSection('timetable')">Timetable</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="navbar">
+      <h3 id="username"></h3>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+      <div class="card">Total Tasks: <span id="totalTasks"></span></div>
+      <div class="card">Completed: <span id="completedTasks"></span></div>
+      <div class="card">Notes: <span id="totalNotes"></span></div>
+    </div>
+
+    <!-- Tasks -->
+    <div id="tasks" style="display:none;">
+      <div class="card">
+        <input id="taskInput" placeholder="New Task">
+        <button onclick="addTask()">Add</button>
+        <div id="taskList"></div>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div id="notes" style="display:none;">
+      <div class="card">
+        <input id="noteInput" placeholder="New Note">
+        <button onclick="addNote()">Add</button>
+        <div id="noteList"></div>
+      </div>
+    </div>
+
+    <!-- Timetable -->
+    <div id="timetable" style="display:none;">
+      <div class="card">
+        <h3>Weekly Timetable</h3>
+        <p>Mon - Study</p>
+        <p>Tue - Coding</p>
+        <p>Wed - Revision</p>
+        <p>Thu - Practice</p>
+        <p>Fri - Projects</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

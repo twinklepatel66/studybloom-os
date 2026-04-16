@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>StudyBloom Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main">
+  <div class="card" style="max-width:400px;margin:auto;margin-top:100px;text-align:center;">
+    <h2>🌸 StudyBloom</h2>
+    <input placeholder="Enter your name" id="name"><br><br>
+    <button onclick="login()">Enter</button>
+  </div>
+</div>
+
+<script>
+function login(){
+  const name = document.getElementById("name").value;
+  localStorage.setItem("user", name);
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>
