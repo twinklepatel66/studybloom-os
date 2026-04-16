@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // MongoDB Connection
-mongoose.connect("mongodb://127.0.0.1:27017/studentDB")
+mongodb+srv://twinkle:twinklepatel123456@cluster0.3bawzao.mongodb.net/?appName=Cluster0
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
